@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 7 avr. 2013 21:24:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="persistance.Clients" table="clients" catalog="bourse">
+        <id name="idClients" type="java.lang.Integer">
+            <column name="idClients" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="utilisateurs" class="persistance.Utilisateurs" fetch="select">
+            <column name="Login" length="45" />
+        </many-to-one>
+        <property name="nbreOrange" type="java.lang.Integer">
+            <column name="Nbre_orange" />
+        </property>
+        <property name="nbreTelecom" type="java.lang.Integer">
+            <column name="Nbre_telecom" />
+        </property>
+        <property name="nbreTunisiana" type="java.lang.Integer">
+            <column name="Nbre_tunisiana" />
+        </property>
+    </class>
+</hibernate-mapping>

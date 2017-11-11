@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 7 avr. 2013 21:24:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="persistance.Utilisateurs" table="utilisateurs" catalog="bourse">
+        <id name="login" type="string">
+            <column name="Login" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="Password" length="45" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="45" />
+        </property>
+        <set name="clientses" table="clients" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Login" length="45" />
+            </key>
+            <one-to-many class="persistance.Clients" />
+        </set>
+    </class>
+</hibernate-mapping>

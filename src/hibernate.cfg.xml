@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">admin</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/bourse</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		<property name="current_session_context_class">thread</property>
+        <property name="org.hibernate.SQL">true</property>
+  
+        
+        
+     <mapping resource="persistance/Clients.hbm.xml"/>
+     <mapping resource="persistance/Utilisateurs.hbm.xml"/>
+   	 <mapping resource="persistance/Orange.hbm.xml"/>
+     <mapping resource="persistance/Telecom.hbm.xml"/>
+     <mapping resource="persistance/Tunisiana.hbm.xml"/>
+     
+    </session-factory>
+</hibernate-configuration>

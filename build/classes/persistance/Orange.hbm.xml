@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 7 avr. 2013 21:24:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="persistance.Orange" table="orange" catalog="bourse">
+        <id name="idOrange" type="java.lang.Integer">
+            <column name="Id_orange" />
+            <generator class="identity" />
+        </id>
+        <property name="login" type="string">
+            <column name="Login" length="45" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="Type" length="45" />
+        </property>
+        <property name="prixActuel" type="java.lang.Float">
+            <column name="Prix_actuel" precision="12" scale="0" />
+        </property>
+        <property name="nbreVente" type="java.lang.Integer">
+            <column name="Nbre_vente" />
+        </property>
+        <property name="nbreActionRest" type="java.lang.Integer">
+            <column name="Nbre_action_rest" />
+        </property>
+    </class>
+</hibernate-mapping>
