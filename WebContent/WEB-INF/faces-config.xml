@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+
+    
+    
+   <managed-bean>
+		<managed-bean-name>Cc</managed-bean-name>
+		<managed-bean-class>bean.GestionClients</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+    
+<managed-bean>
+		<managed-bean-name>pp</managed-bean-name>
+		<managed-bean-class>bean.essai</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+	
+<managed-bean>
+		<managed-bean-name>Cu</managed-bean-name>
+		<managed-bean-class>bean.GestionUtilisateurs</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+</managed-bean>
+
+
+
+<managed-bean>
+		<managed-bean-name>Ctu</managed-bean-name>
+		<managed-bean-class>bean.GestionTunisiana</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+
+		
+		
+		
+</managed-bean>
+
+	
+<managed-bean>
+		<managed-bean-name>Co</managed-bean-name>
+		<managed-bean-class>bean.GestionOrange</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+</managed-bean>
+	
+	
+<managed-bean>
+		<managed-bean-name>Cte</managed-bean-name>
+		<managed-bean-class>bean.GestionTelecom</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+</managed-bean>
+		
+	
+	
+	
+	<!-- Navigation RULES NAMES and  CASES -->
+
+<navigation-rule>
+	    
+		<display-name>Acceuil</display-name>
+		<from-view-id>/Acceuil.jsp</from-view-id>
+		<!-- le login et Password entrés corre^pondent a ceux d'un client-> redirection vers une page du client avec ces données -->
+			<navigation-case>
+			<from-outcome>success_client</from-outcome>
+			<to-view-id>/Client.jsp</to-view-id>
+			
+			</navigation-case>
+		<!-- si le retour est okadmin donc redirection vers admine.jsp , càd que login et Password de l'admin -->
+			<navigation-case>
+	        <from-outcome>success_admin</from-outcome>
+	        <to-view-id>/Admin.jsp</to-view-id>
+	        </navigation-case>
+			
+			
+			
+		<!-- le login et le Passwodr entrés ne sont pas valides -> redirection vers un page d'erreur  -->
+			<navigation-case>
+	        <from-outcome>echec_verif</from-outcome>
+	        <to-view-id>/EchecLogin.jsp</to-view-id>
+			</navigation-case>
+		
+	        
+    </navigation-rule>
+	
+	<!-- ******************Pour l'admin ****************** -->
+	
+    <navigation-rule>
+			<display-name>Admin</display-name>
+			<from-view-id>/Admin.jsp</from-view-id>
+			
+			<navigation-case>
+			<from-outcome>success_prix_modif</from-outcome>
+			<to-view-id>/Admin.jsp</to-view-id>
+			</navigation-case>
+			
+			<navigation-case>
+			<from-outcome>echec_prix_modif</from-outcome>
+			<to-view-id>/Echec_Admin_modif.jsp</to-view-id>  <!-- dans le cas ou le prix modifier est +- 6% ou plus de l'ancien prix -->
+ 			</navigation-case>
+			
+			
+			<navigation-case>
+			<from-outcome>success_ajout</from-outcome>
+			<to-view-id>/Admin.jsp</to-view-id>
+			</navigation-case>
+			
+				<navigation-case>
+			<from-outcome>echec_ajout</from-outcome>
+			<to-view-id>/Echec_Admin_modif.jsp</to-view-id>
+			</navigation-case>
+			
+    </navigation-rule>
+		
+	
+    
+    
+    
+    
+    <!--  Pour le client -->
+    
+    	<navigation-rule>
+			<display-name>Client</display-name>
+			<from-view-id>/Client.jsp</from-view-id>
+			
+			<navigation-case>
+			<from-outcome>client_modif</from-outcome>
+			<to-view-id>/Client_modif.jsp</to-view-id>
+			</navigation-case>
+			
+			<navigation-case>
+			<from-outcome>success_client_modif</from-outcome>
+			<to-view-id>/Client.jsp</to-view-id>
+			</navigation-case>
+			
+			<navigation-case>
+			<from-outcome>echec_achat</from-outcome>
+			<to-view-id>/EchecTransaction.jsp</to-view-id>
+			</navigation-case>
+			
+			<navigation-case>
+			<from-outcome>success_achat</from-outcome>
+			<to-view-id>/TransactionValide.html</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+	
+			
+			
+			
+			
+    	
+			
+    	<navigation-rule>
+			<display-name>EchecLogi</display-name>
+			<from-view-id>/EchecLogin.jsp</from-view-id>
+			
+			<navigation-case>
+			<from-outcome>aller_acceuil</from-outcome>
+			<to-view-id>/Client.jsp</to-view-id>
+			</navigation-case>
+    				
+	</navigation-rule>
+	
+    
+   
+	
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</faces-config>
+
